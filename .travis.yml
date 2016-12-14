@@ -1,19 +1,16 @@
 language: node_js
-
 node_js:
-  - '6'
-  - '5'
-  - '4'
-
+- '6'
+sudo: false
+addons:
+  apt:
+    packages:
+    - oracle-java8-set-default
 before_install:
 - rvm install 2.2.3
-
-before_script:
-  # install node.js dependencies, travis runs `npm install` by default
-  - npm install -g bower
-  - npm install -g gulp
-  - bower install
-
-  # install ruby dependencies
-  - gem install bundler
-  - bundle install
+before_script: make install
+after_success: make travis
+env:
+  global:
+  - secure: p1L9t0vVoW/vLqIeFKtxcG4cmu6pdfTc3wR7xroC4L1n7MG9EalQyDlxWTpKpHn82lG3C5UTsJS8FD89d57rKhSRIlI/EO9vhgfJQyuCT001FdOIog2P9TwQSkOKYtJ/ogs2AxuKU/alRO5TaGalu/r4OCt+omr+3QI5s3blPlYWg1c6bNFMg37FMIBNtzsJhdbaAc2NXoxULGcPc1QeEPj9058sAJiozaBHRlZawyZZz7Merqbuar6PEZoqYzq1CbMXshrp1V5arIx/h9fQ/ZB4Jsu8hOTH4jPkPv7jy8GTmIfaQ/bI8BVBsmBcAgyw2CTu6O046eYyWXe3ddjVW7kmwB1/NNdCRwvy02JKMA22PSwaqgBbc+LPSEKQQrVWY+68aDRZFFX5SXdgq6tx/v0bNXWsBDaPcvc+qkMoRebhYwJ8g8gol/lzGXxJFb/Wygoo+icawn+2lXEZK+GnbpmkUWPNKX/28IH6p2UPdzwVj7Fu4okNmdG0WiSK0MR1IjJ8l7Xq6XhlVOSolo1sniv4uQXtfGO3HPcMvDBRxSkL+NiXBsk8Vs9sPEGhdCeBaXxKU74buCR8vbVw7jwwawVPZ7zZhYJXA6/0TL8bkgZHnlDN8talQNCHAABjVgfdOZbrYe7n2Yoo6QWSdmfUB4fMFHmeZSI+xxiWHr9V5Mo=
+  - secure: Q0+Z6VMpzbeVRSq4orvcDJxHK9ZWZBbME1+hDC7oSl38unCk3+1bi6I94QDQMG3LJVrueRhtPkF5TGSgCh3ib5OVyNUxFheyN47S9kQkccc5yR5wTtX0P8tDjXmVb+JaPhyVHzDobGpShfaPUl90GjjFflB4vW79seFaEkmTFmkPQJJ0Zl8VzvVdrNMQT3zreQkrcXZiSmjmSQ9aBL20dvOwxZcQZsE7E6PvEAszVO5LcHjoyVxLBljk5kHGn53x51GMrSchWboRdzujonZjiV7UTdY5+ziQOM7FZq4M4Z0FBk7VLW6zt581JizTNGti6M/4k+TJIHWEGYfmPHVldETTcswJi7wvY14uuHfgPHyp27i/t33RODo8rT6Wq/lWuhvU1yxxbVjfVrhjuR0kMUEL3Fqy8GEL2GebywJUlBSaD8kO0EMd8l/zz65nFmnyxB4Ufz2yoIokL1c1aEljr6ai8im+aUutA8QOgaYoBsXXA+hNgSTBdbS9bGFa3o6JB9udiswu4ILiiGksnz/pPHcJ0SOLchep1TD0a2ORrPTfiFNPNbQIs1lIUI6hJx6jIN4pGjt6WQq0ml+ifgmjI32sJb6gnIcGfcX7R7GKF/vjo7/TTS3vrNfXaHepF+qZy98qd5z0Pdwbvzn0MqSVwadEOpnEHMov6onLzIXlWjw=

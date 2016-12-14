@@ -1,8 +1,8 @@
 # Site settings
-language:               ""
-title:                  "Site Title"
-description:            "Site description"
-google-verification:    ""
+language:               "en"
+title:                  "gregkitson.com"
+description:            ""
+google-verification:    "UA-54147357-1"
 
 # Handling Reading
 include:

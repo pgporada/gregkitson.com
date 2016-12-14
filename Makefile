@@ -1,17 +1,18 @@
 # use tabs for indentation!
 
-SSH-USER = my-username
-SSH-HOST = my-host
-REMOTE-PATH = /my-remote-path with trailing slash/
+travis:
+ifeq ($(TRAVIS_BRANCH),master)
+	make deploy
+else
+	@echo refusing to deploy non master branch
+endif
 
 deploy:
-	rsync -cavze ssh --delete ./_site/ $(SSH-USER)@$(SSH-HOST):$(REMOTE-PATH)
+	bundle exec s3_website cfg apply
+	bundle exec s3_website push --force
 
 install:
 	bundle install
 	npm install
-	bower install
-	composer install
+	./node_modules/bower/bin/bower install
 
-ssh:
-	ssh $(SSH-USER)@$(SSH-HOST)
