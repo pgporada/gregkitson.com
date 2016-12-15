@@ -1,11 +1,7 @@
 # use tabs for indentation!
 
 travis:
-ifeq ($(TRAVIS_BRANCH),master)
-	make deploy
-else
-	@echo refusing to deploy non master branch
-endif
+	echo make deploy
 
 deploy:
 	bundle exec s3_website cfg apply
